@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Victim Requests - DRRAO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="rescuer_dashboard.css">
+    <link rel="stylesheet" href="victim_requests.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="rescuer-app">
+        <!-- Dashboard Header -->
+        <header class="rescuer-header">
+            <div class="header-left">
+                <div class="logo-area">
+                    <span class="logo-text">DRRAO</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="avatar-container">
+                    <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=ff8f00&color=fff" alt="Rahul Sharma">
+                </div>
+            </div>
+        </header>
+
+        <main class="victim-requests-main">
+            <!-- Tabs Navigation -->
+            <nav class="tabs-nav">
+                <button class="tab-btn active" data-tab="list">All Requests</button>
+                <button class="tab-btn" data-tab="priority">By Priority</button>
+                <button class="tab-btn" data-tab="map">Map View</button>
+            </nav>
+
+            <!-- Tab Content: List View -->
+            <section class="tab-content active" id="tab-list">
+                <div class="requests-feed">
+                    <!-- Request 1 -->
+                    <div class="request-item-card critical">
+                        <div class="card-header">
+                            <div class="victim-info">
+                                <h3>#RX-802 (Anonymous)</h3>
+                                <p><i class="ph ph-map-pin"></i> Adyar, Chennai (12.99, 80.24)</p>
+                            </div>
+                            <span class="urgency-tag critical">Critical</span>
+                        </div>
+                        
+                        <div class="priority-list-summary">
+                            <div class="priority-item red">1. Rescue Personnel</div>
+                            <div class="priority-item">2. Food Supplies</div>
+                            <div class="priority-item">3. Medical Kits</div>
+                        </div>
+
+                        <div class="status-row">
+                            <span class="submitted-time">2 mins ago</span>
+                            <span class="status-label pending">Pending</span>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="outline-btn-sm">View Details</button>
+                            <button class="primary-btn-sm orange allocate-btn">Allocate Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Request 2 -->
+                    <div class="request-item-card high">
+                        <div class="card-header">
+                            <div class="victim-info">
+                                <h3>Suresh K.</h3>
+                                <p><i class="ph ph-map-pin"></i> Velachery, Chennai</p>
+                            </div>
+                            <span class="urgency-tag high">High</span>
+                        </div>
+                        
+                        <div class="priority-list-summary">
+                            <div class="priority-item">1. Medical Kits</div>
+                            <div class="priority-item">2. Food Supplies</div>
+                            <div class="priority-item">3. Rescue Personnel</div>
+                        </div>
+
+                        <div class="status-row">
+                            <span class="submitted-time">8 mins ago</span>
+                            <span class="status-label allocated">Allocated</span>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="outline-btn-sm">View Details</button>
+                            <button class="primary-btn-sm orange allocate-btn" disabled style="background:#00e676; border-color:#00e676; color:#000">Allocated</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Content: By Priority -->
+            <section class="tab-content" id="tab-priority">
+                <div class="priority-group">
+                    <h2 class="group-title rescue">Top Priority: Rescue</h2>
+                    <div class="requests-feed" id="rescue-group">
+                        <!-- Cloned data via JS -->
+                    </div>
+                </div>
+                <div class="priority-group">
+                    <h2 class="group-title medical">Top Priority: Medical</h2>
+                    <div class="requests-feed" id="medical-group">
+                        <!-- Cloned data via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Content: Map View -->
+            <section class="tab-content" id="tab-map">
+                <div id="requests-map" class="full-screen-map"></div>
+            </section>
+
+            <!-- FAB -->
+            <button class="fab-refresh">
+                <i class="ph-bold ph-arrows-clockwise"></i>
+                <span>Refresh</span>
+            </button>
+        </main>
+
+        <!-- Bottom Nav Bar -->
+        <nav class="bottom-nav">
+            <a href="rescuer_dashboard.html" class="nav-item">
+                <i class="ph ph-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="active_disasters.html" class="nav-item">
+                <i class="ph ph-warning-diamond"></i>
+                <span>Disasters</span>
+            </a>
+            <a href="victim_requests.html" class="nav-item active">
+                <i class="ph-fill ph-hand-holding-heart"></i>
+                <span>Requests</span>
+            </a>
+            <a href="my_allocations.html" class="nav-item">
+                <i class="ph ph-package"></i>
+                <span>Resources</span>
+            </a>
+            <a href="rescuer_profile.html" class="nav-item">
+                <i class="ph ph-user-circle-gear"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+    <script src="victim_requests.js"></script>
+</body>
+</html>

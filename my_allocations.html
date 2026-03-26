@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Allocations - DRRAO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="rescuer_dashboard.css">
+    <link rel="stylesheet" href="my_allocations.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="rescuer-app">
+        <!-- Dashboard Header -->
+        <header class="rescuer-header">
+            <div class="header-left">
+                <div class="logo-area">
+                    <span class="logo-text">DRRAO</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="avatar-container">
+                    <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=ff8f00&color=fff" alt="Rahul Sharma">
+                </div>
+            </div>
+        </header>
+
+        <main class="allocations-main">
+            <div class="search-section">
+                <div class="search-bar">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search by Victim ID or Disaster...">
+                </div>
+                <div class="filter-row">
+                    <select class="filter-dropdown">
+                        <option value="all">All Disasters</option>
+                        <option value="chennai">Chennai Flood</option>
+                        <option value="bengaluru">Bengaluru Rain</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <nav class="tabs-nav">
+                <button class="tab-btn active" data-tab="in-progress">In Progress</button>
+                <button class="tab-btn" data-tab="completed">Completed</button>
+                <button class="tab-btn" data-tab="cancelled">Cancelled</button>
+            </nav>
+
+            <!-- Tab Content: In Progress -->
+            <section class="tab-content active" id="tab-in-progress">
+                <div class="allocations-list">
+                    <!-- Allocation 1 -->
+                    <div class="allocation-card active-delivery">
+                        <div class="card-header">
+                            <div class="victim-id-info">
+                                <h3>Victim #7843</h3>
+                                <p><i class="ph ph-map-pin"></i> Adyar, Chennai</p>
+                            </div>
+                            <span class="status-badge pulse-orange">In Transit</span>
+                        </div>
+                        
+                        <div class="assigned-items">
+                            <div class="item"><i class="ph ph-users-four"></i> 1 Rescue Team</div>
+                            <div class="item"><i class="ph ph-bowl-food"></i> 5 Food packs</div>
+                        </div>
+
+                        <div class="progress-info">
+                            <span class="eta-text">Team en route - <strong>28 min away</strong></span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="outline-btn-sm track-btn"><i class="ph ph-map-trifold"></i> Live Track</button>
+                            <div class="status-update-wrapper">
+                                <button class="primary-btn-sm orange update-status-btn">Update Status <i class="ph ph-caret-down"></i></button>
+                                <div class="status-dropdown">
+                                    <button data-status="Arrived">Arrived</button>
+                                    <button data-status="Delivered">Delivered</button>
+                                    <button data-status="Complete">Rescue Complete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini map hidden by default -->
+                        <div class="mini-map-container" style="display: none;">
+                            <div id="map-7843" class="mini-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Allocation 2 -->
+                    <div class="allocation-card active-delivery">
+                        <div class="card-header">
+                            <div class="victim-id-info">
+                                <h3>Victim #7845</h3>
+                                <p><i class="ph ph-map-pin"></i> Velachery, Chennai</p>
+                            </div>
+                            <span class="status-badge pulse-yellow">Processing</span>
+                        </div>
+                        
+                        <div class="assigned-items">
+                            <div class="item"><i class="ph ph-bowl-food"></i> 10 Food packs</div>
+                            <div class="item"><i class="ph ph-first-aid"></i> 2 Medical Kits</div>
+                        </div>
+
+                        <div class="progress-info">
+                            <span class="eta-text">Allocating nearest drone - <strong>Scanning...</strong></span>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="outline-btn-sm track-btn" disabled><i class="ph ph-map-trifold"></i> Live Track</button>
+                            <button class="primary-btn-sm orange update-status-btn">Update Status <i class="ph ph-caret-down"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Content: Completed -->
+            <section class="tab-content" id="tab-completed">
+                <div class="allocations-list">
+                    <div class="allocation-card completed-card">
+                        <div class="card-header">
+                            <div class="victim-id-info">
+                                <h3>Victim #8012</h3>
+                                <p>T Nagar, Chennai • Oct 24, 2026</p>
+                            </div>
+                            <span class="status-badge green">Success</span>
+                        </div>
+                        <div class="rating-row">
+                            <div class="stars">
+                                <i class="ph-fill ph-star"></i>
+                                <i class="ph-fill ph-star"></i>
+                                <i class="ph-fill ph-star"></i>
+                                <i class="ph-fill ph-star"></i>
+                                <i class="ph ph-star"></i>
+                            </div>
+                            <span class="rating-text">Rescuer Feedback: Excellent speed</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAB -->
+            <button class="fab-export">
+                <i class="ph-bold ph-file-csv"></i>
+                <span>Export Report</span>
+            </button>
+        </main>
+
+        <!-- Bottom Nav Bar -->
+        <nav class="bottom-nav">
+            <a href="rescuer_dashboard.html" class="nav-item">
+                <i class="ph ph-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="active_disasters.html" class="nav-item">
+                <i class="ph ph-warning-diamond"></i>
+                <span>Disasters</span>
+            </a>
+            <a href="victim_requests.html" class="nav-item">
+                <i class="ph ph-hand-holding-heart"></i>
+                <span>Requests</span>
+            </a>
+            <a href="my_allocations.html" class="nav-item active">
+                <i class="ph-fill ph-package"></i>
+                <span>Resources</span>
+            </a>
+            <a href="rescuer_profile.html" class="nav-item">
+                <i class="ph ph-user-circle-gear"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+    <script src="my_allocations.js"></script>
+</body>
+</html>

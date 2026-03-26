@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ReliefRoute</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Phosphor Icons for high quality modern icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background elements for depth and glassmorphism -->
+        <div class="glow red-glow"></div>
+        <div class="glow white-glow"></div>
+        
+        <header class="header-section">
+            <div class="logo-container">
+                <div class="logo-shield">
+                    <i class="ph-fill ph-shield"></i>
+                    <i class="ph-fill ph-map-pin inner-pin"></i>
+                </div>
+                <h1 class="app-name">ReliefRoute</h1>
+            </div>
+            <p class="tagline">Fast help. Right place. Right time.</p>
+        </header>
+
+        <main class="role-selection">
+            <div class="card" id="card-victim" tabindex="0">
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="ph ph-user"></i>
+                    </div>
+                    <span class="card-title">I am Affected / Victim</span>
+                </div>
+                <div class="check-indicator">
+                    <i class="ph-bold ph-check"></i>
+                </div>
+            </div>
+
+            <div class="card" id="card-rescuer" tabindex="0">
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="ph ph-hard-hat"></i>
+                    </div>
+                    <span class="card-title">I am a Field Agent<br>Rescue Worker</span>
+                </div>
+                <div class="check-indicator">
+                    <i class="ph-bold ph-check"></i>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer-section">
+            <button class="primary-btn continue-btn" id="continue-btn" disabled>
+                Continue
+                <i class="ph-bold ph-arrow-right"></i>
+            </button>
+            <a href="login.html" class="login-link">Already have an account? <span>Log in</span></a>
+
+            <div class="language-selector">
+                <i class="ph ph-globe"></i>
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="ta">Tamil (தமிழ்)</option>
+                    <option value="hi">Hindi (हिंदी)</option>
+                </select>
+                <i class="ph-bold ph-caret-down dropdown-icon"></i>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+/* Extends variables and core elements from styles.css */
+
+.report-container {
+    padding-top: 30px;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.report-top-glow {
+    top: -50px;
+    left: -50px;
+    bottom: auto;
+    width: 250px;
+    height: 250px;
+}
+
+.report-header {
+    text-align: left;
+    margin-bottom: 0px;
+    animation: slideDown 0.6s var(--transition-bounce) both;
+}
+
+.heading {
+    font-size: 32px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.5px;
+}
+
+.title-icon {
+    color: var(--accent-red);
+    font-size: 36px;
+    filter: drop-shadow(0 0 15px var(--accent-red-glow));
+    animation: dropIn 0.8s var(--transition-bounce) both;
+}
+
+@keyframes dropIn {
+    0% { transform: translateY(-20px) scale(0.8); opacity: 0; }
+    50% { transform: translateY(5px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.sub-heading {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
+    color: white;
+}
+
+.optional-text {
+    font-weight: 400;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Map Section */
+.map-section {
+    width: 100%;
+    animation: fadeIn 0.8s var(--transition-snappy) 0.1s both;
+}
+
+.map-container {
+    width: 100%;
+    height: 220px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    background: #0d0d10;
+    border: 1px solid var(--card-border);
+}
+
+.leaflet-container {
+    background: #0d0d10 !important;
+}
+
+.pulsing-dot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+}
+
+.pulse-dot {
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-red);
+    position: relative;
+    z-index: 2;
+    border: 2px solid white;
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid var(--accent-red);
+    z-index: 1;
+    animation: pulse 2s infinite cubic-bezier(0.2, 0, 0, 1);
+}
+
+.pulse-label {
+    background: rgba(10, 10, 12, 0.85);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--accent-red);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transform: translateY(8px);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; border-color: rgba(255,59,59,0.8); }
+    100% { transform: scale(4); opacity: 0; border-color: transparent; }
+}
+
+/* Disaster Type Section */
+.disaster-type-section {
+    width: 100%;
+    animation: slideUp 0.8s var(--transition-bounce) 0.2s both;
+}
+
+.disaster-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.disaster-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: all var(--transition-bounce);
+    color: var(--text-primary);
+    font-family: inherit;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.disaster-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-snappy);
+}
+
+.disaster-card i {
+    font-size: 38px;
+    color: var(--text-secondary);
+    transition: all var(--transition-bounce);
+    position: relative;
+    z-index: 1;
+}
+
+.disaster-card span {
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.disaster-card:hover, .disaster-card:focus-visible {
+    background: var(--card-bg-hover);
+    transform: translateY(-4px) scale(1.02);
+}
+
+.disaster-card:hover::before {
+    opacity: 1;
+}
+
+.disaster-card:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.disaster-card.selected {
+    border-color: var(--accent-red);
+    background: rgba(255, 59, 59, 0.1);
+    box-shadow: 0 6px 20px var(--accent-red-glow), inset 0 0 0 1px var(--accent-red);
+    transform: translateY(-2px);
+}
+
+.disaster-card.selected i {
+    color: var(--accent-red);
+    filter: drop-shadow(0 0 10px var(--accent-red-glow));
+    transform: scale(1.1);
+}
+
+/* Description Section */
+.description-section {
+    width: 100%;
+    animation: slideUp 0.8s var(--transition-bounce) 0.3s both;
+}
+
+textarea {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 16px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 15px;
+    resize: none;
+    transition: all var(--transition-snappy);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: var(--card-bg-hover);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Ensure next button matches design specs */
+.footer-section {
+    margin-top: 20px;
+    width: 100%;
+    animation: slideUp 0.8s var(--transition-bounce) 0.4s both;
+}

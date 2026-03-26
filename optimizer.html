@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Allocation Optimizer - DRRAO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="rescuer_dashboard.css">
+    <link rel="stylesheet" href="optimizer.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="rescuer-app">
+        <!-- Dashboard Header -->
+        <header class="rescuer-header">
+            <div class="header-left">
+                <div class="logo-area">
+                    <span class="logo-text">DRRAO</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="avatar-container">
+                    <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=ff8f00&color=fff" alt="Rahul Sharma">
+                </div>
+            </div>
+        </header>
+
+        <main class="optimizer-main">
+            <!-- Current Situation -->
+            <section class="situation-summary glass-card">
+                <div class="summary-header">
+                    <i class="ph-fill ph-target"></i>
+                    <h2>Current Situation</h2>
+                </div>
+                <div class="summary-stats">
+                    <div class="stat">
+                        <span class="val">87</span>
+                        <span class="lab">Pending Victims</span>
+                    </div>
+                    <div class="stat">
+                        <span class="val">12</span>
+                        <span class="lab">Available Teams</span>
+                    </div>
+                </div>
+                <div class="resource-mini-list">
+                    <span>620 Food Packs</span> • <span>245 Medical Kits</span>
+                </div>
+                <div class="location-chip">
+                    <i class="ph ph-map-pin"></i> Chennai Flood Zone
+                </div>
+            </section>
+
+            <!-- Optimizer Controls -->
+            <section class="optimizer-controls">
+                <div class="toggle-group">
+                    <label class="switch-skin">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="toggle-label">Consider distance / traffic / location</span>
+                </div>
+                
+                <button class="primary-btn orange big-action-btn" id="run-optimizer">
+                    <i class="ph-bold ph-lightning"></i>
+                    Run Smart Optimizer
+                </button>
+                <button class="manual-override-btn">Manually Override</button>
+            </section>
+
+            <!-- Results Section (Hidden until run) -->
+            <section class="results-section" id="optimizer-results" style="display: none;">
+                <div class="ai-insight-card glass-card">
+                    <div class="efficiency-gauge">
+                        <div class="gauge-ring">
+                            <span class="gauge-val">92%</span>
+                        </div>
+                        <div class="gauge-text">
+                            <h3>Efficiency Score</h3>
+                            <p>Optimized for 82/87 victims</p>
+                        </div>
+                    </div>
+                    <div class="ai-reasoning">
+                        <i class="ph-fill ph-brain"></i>
+                        <p><strong>Intelligence:</strong> Rescue prioritized because 68 victims have it as #1 need. Distance-weighted clustering applied.</p>
+                    </div>
+                </div>
+
+                <div class="suggestions-list">
+                    <h2 class="section-title">Suggested Allocations</h2>
+                    
+                    <!-- Sug 1 -->
+                    <div class="allocation-card">
+                        <div class="all-header">
+                            <span class="victim-id">Victim ID: #7843 (Adyar)</span>
+                            <span class="priority-badge red">P1: Rescue</span>
+                        </div>
+                        <div class="all-suggestion">
+                            <i class="ph-fill ph-truck"></i>
+                            <div class="suggest-text">
+                                <span class="action">Assign 1 Team</span>
+                                <span class="eta">ETA 45 min</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="accept-btn"><i class="ph-bold ph-check"></i> Accept & Assign</button>
+                            <div class="sub-actions">
+                                <button class="icon-btn" title="Modify"><i class="ph ph-pencil-simple"></i></button>
+                                <button class="icon-btn" title="Reject"><i class="ph ph-x"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sug 2 -->
+                    <div class="allocation-card">
+                        <div class="all-header">
+                            <span class="victim-id">Victim ID: #7845 (Velachery)</span>
+                            <span class="priority-badge orange">P1: Food</span>
+                        </div>
+                        <div class="all-suggestion">
+                            <i class="ph-fill ph-package"></i>
+                            <div class="suggest-text">
+                                <span class="action">Assign 10 Food Packs</span>
+                                <span class="eta">ETA 15 min</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="accept-btn"><i class="ph-bold ph-check"></i> Accept & Assign</button>
+                            <div class="sub-actions">
+                                <button class="icon-btn" title="Modify"><i class="ph ph-pencil-simple"></i></button>
+                                <button class="icon-btn" title="Reject"><i class="ph ph-x"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Nav Bar -->
+        <nav class="bottom-nav">
+            <a href="rescuer_dashboard.html" class="nav-item">
+                <i class="ph ph-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="active_disasters.html" class="nav-item">
+                <i class="ph ph-warning-diamond"></i>
+                <span>Disasters</span>
+            </a>
+            <a href="victim_requests.html" class="nav-item">
+                <i class="ph ph-hand-holding-heart"></i>
+                <span>Requests</span>
+            </a>
+            <a href="my_allocations.html" class="nav-item">
+                <i class="ph ph-package"></i>
+                <span>Resources</span>
+            </a>
+            <a href="rescuer_profile.html" class="nav-item">
+                <i class="ph ph-user-circle-gear"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+    <script src="optimizer.js"></script>
+</body>
+</html>

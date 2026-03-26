@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rescuer Profile - DRRAO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="rescuer_dashboard.css">
+    <link rel="stylesheet" href="rescuer_profile.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="rescuer-app">
+        <!-- Dashboard Header -->
+        <header class="rescuer-header">
+            <div class="header-left">
+                <div class="logo-area">
+                    <span class="logo-text">DRRAO</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification-bell">
+                    <i class="ph ph-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="profile-main">
+            <!-- Hero Section -->
+            <section class="profile-hero">
+                <div class="profile-avatar-large">
+                    <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=ff8f00&color=fff&size=128" alt="Rahul Sharma">
+                    <button class="edit-avatar-btn"><i class="ph ph-camera"></i></button>
+                    <div class="active-status-dot"></div>
+                </div>
+                <div class="profile-info-text">
+                    <h1>Rahul Sharma</h1>
+                    <p class="role-text">Certified Rescue Volunteer • TN</p>
+                    <div class="org-badge">
+                        <i class="ph-fill ph-shield-check"></i>
+                        Red Cross India
+                    </div>
+                </div>
+            </section>
+
+            <!-- Availability Toggle -->
+            <section class="availability-card glass-card">
+                <div class="avail-text">
+                    <h3>Current Status</h3>
+                    <p id="status-desc">Available for active deployment</p>
+                </div>
+                <label class="switch-skin">
+                    <input type="checkbox" id="avail-toggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </section>
+
+            <!-- Settings Sections -->
+            <div class="settings-group">
+                <h2 class="group-title">Specialization</h2>
+                <div class="skills-grid">
+                    <span class="skill-tag"><i class="ph ph-boat"></i> Boat Rescue</span>
+                    <span class="skill-tag"><i class="ph ph-first-aid"></i> First Aid (L2)</span>
+                    <span class="skill-tag"><i class="ph ph-swimming"></i> Deep Water</span>
+                    <span class="skill-tag"><i class="ph ph-radio"></i> COMMS</span>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h2 class="group-title">Deployment Settings</h2>
+                <div class="settings-list">
+                    <div class="setting-item" id="edit-region">
+                        <div class="item-left">
+                            <i class="ph ph-map-pin"></i>
+                            <div class="item-text">
+                                <span>Assigned Region</span>
+                                <small>Chennai & Surroundings</small>
+                            </div>
+                        </div>
+                        <i class="ph ph-caret-right"></i>
+                    </div>
+                    <div class="setting-item">
+                        <div class="item-left">
+                            <i class="ph ph-translate"></i>
+                            <div class="item-text">
+                                <span>Preferred Language</span>
+                                <small>English / Tamil</small>
+                            </div>
+                        </div>
+                        <i class="ph ph-caret-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h2 class="group-title">Communications</h2>
+                <div class="settings-list">
+                    <div class="setting-item">
+                        <div class="item-left">
+                            <i class="ph ph-bell-ringing"></i>
+                            <div class="item-text">
+                                <span>Push Notifications</span>
+                                <small>All critical requests</small>
+                            </div>
+                        </div>
+                        <label class="switch-skin sm">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="item-left">
+                            <i class="ph ph-phone-call"></i>
+                            <div class="item-text">
+                                <span>Emergency Contact</span>
+                                <small>Sushma (+91 98765 ...)</small>
+                            </div>
+                        </div>
+                        <i class="ph ph-caret-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Actions -->
+            <div class="profile-actions">
+                <button class="primary-btn-sm outline-red logout-btn" id="logout-btn">
+                    <i class="ph ph-sign-out"></i> Logout Account
+                </button>
+                
+                <div class="mode-switcher">
+                    <p>Testing & Training</p>
+                    <button class="ghost-btn" id="switch-mode">
+                        <i class="ph ph-arrows-left-right"></i> Switch to Victim Mode
+                    </button>
+                </div>
+            </div>
+            
+            <p class="app-version">DRRAO v2.4.0 (Alpha)</p>
+        </main>
+
+        <!-- Bottom Nav Bar -->
+        <nav class="bottom-nav">
+            <a href="rescuer_dashboard.html" class="nav-item">
+                <i class="ph ph-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="active_disasters.html" class="nav-item">
+                <i class="ph ph-warning-diamond"></i>
+                <span>Disasters</span>
+            </a>
+            <a href="victim_requests.html" class="nav-item">
+                <i class="ph ph-hand-holding-heart"></i>
+                <span>Requests</span>
+            </a>
+            <a href="my_allocations.html" class="nav-item">
+                <i class="ph ph-package"></i>
+                <span>Resources</span>
+            </a>
+            <a href="rescuer_profile.html" class="nav-item active">
+                <i class="ph-fill ph-user-circle-gear"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+    
+    <!-- Logout Modal -->
+    <div class="modal-overlay" id="logout-modal">
+        <div class="modal-content glass-card">
+            <h3>Are you sure?</h3>
+            <p>You will stop receiving emergency alerts until you log back in.</p>
+            <div class="modal-actions">
+                <button class="outline-btn" id="cancel-logout">Cancel</button>
+                <button class="primary-btn-sm red" id="confirm-logout">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="rescuer_profile.js"></script>
+</body>
+</html>

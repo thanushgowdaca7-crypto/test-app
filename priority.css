@@ -1,0 +1,168 @@
+/* Priority Screen Styles */
+
+.priority-container {
+    padding-top: 40px;
+    gap: 24px;
+}
+
+.priority-top-glow {
+    top: -60px;
+    right: -60px;
+    left: auto;
+}
+
+.priority-header {
+    text-align: left;
+    margin-bottom: 10px;
+    animation: slideDown 0.6s var(--transition-bounce) both;
+}
+
+.priority-header .heading {
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.priority-header .sub-heading {
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* List Layout */
+.priority-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.priority-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    cursor: move;
+    user-select: none;
+    touch-action: none;
+    transition: transform 0.2s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.priority-card:active {
+    cursor: grabbing;
+}
+
+/* Sortable specific styles */
+.sortable-ghost {
+    opacity: 0.3;
+    background: var(--accent-red-glow);
+    border-color: var(--accent-red);
+}
+
+.sortable-chosen {
+    border-color: var(--accent-red);
+    background: rgba(255, 59, 59, 0.05);
+    box-shadow: 0 8px 32px var(--accent-red-glow);
+}
+
+.sortable-drag {
+    cursor: grabbing;
+    transform: scale(1.05);
+    opacity: 0.9;
+    z-index: 1000;
+}
+
+.drag-handle {
+    color: var(--text-muted);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.card-icon {
+    font-size: 32px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-text {
+    flex: 1;
+}
+
+.card-label {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.3;
+}
+
+.priority-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+/* Highlight #1 Priority specifically */
+.priority-list div:first-child .priority-badge {
+    background: var(--accent-red);
+    color: white;
+    box-shadow: 0 0 15px var(--accent-red-glow);
+}
+
+.priority-list div:first-child {
+    border-color: rgba(255, 59, 59, 0.3);
+}
+
+/* Info Section */
+.info-section {
+    animation: fadeIn 0.8s var(--transition-snappy) 0.3s both;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.info-icon {
+    color: var(--text-secondary);
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+.info-box p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Footer Section */
+.footer-section {
+    margin-top: auto;
+    animation: slideUp 0.8s var(--transition-bounce) 0.5s both;
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Active Disasters - DRRAO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="rescuer_dashboard.css">
+    <link rel="stylesheet" href="active_disasters.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="rescuer-app">
+        <!-- Dashboard Header -->
+        <header class="rescuer-header">
+            <div class="header-left">
+                <div class="logo-area">
+                    <span class="logo-text">DRRAO</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="avatar-container">
+                    <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=ff8f00&color=fff" alt="Rahul Sharma">
+                </div>
+            </div>
+        </header>
+
+        <main class="active-disasters-main">
+            <!-- Search & Filter -->
+            <section class="filter-section">
+                <div class="search-bar">
+                    <i class="ph-bold ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search city or disaster type...">
+                </div>
+                <div class="filter-chips">
+                    <span class="chip active">All</span>
+                    <span class="chip">Flood</span>
+                    <span class="chip">Cyclone</span>
+                    <span class="chip">Earthquake</span>
+                    <span class="chip">Fire</span>
+                </div>
+            </section>
+
+            <!-- Disasters List -->
+            <section class="disasters-list-section" id="disaster-list">
+                <!-- Card 1 -->
+                <div class="disaster-full-card">
+                    <div class="card-top">
+                        <div class="disaster-title">
+                            <i class="ph-fill ph-waves flood"></i>
+                            <div class="title-text">
+                                <h3>Flood - Chennai</h3>
+                                <p>Started: March 24, 2026</p>
+                            </div>
+                        </div>
+                        <span class="status-tag pulse-red">Ongoing</span>
+                    </div>
+
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="val">234</span>
+                            <span class="lab">Victims Reported</span>
+                        </div>
+                    </div>
+
+                    <div class="priority-breakdown">
+                        <p class="section-label">Priority Needs Summary</p>
+                        <div class="breakdown-item">
+                            <div class="label-row">
+                                <span>Rescue Personnel</span>
+                                <span>68%</span>
+                            </div>
+                            <div class="progress-bar"><div class="fill" style="width: 68%; background: #ff3d00;"></div></div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="label-row">
+                                <span>Food Supplies</span>
+                                <span>22%</span>
+                            </div>
+                            <div class="progress-bar"><div class="fill" style="width: 22%; background: #ff8f00;"></div></div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="label-row">
+                                <span>Medical Kits</span>
+                                <span>10%</span>
+                            </div>
+                            <div class="progress-bar"><div class="fill" style="width: 10%; background: #00e5ff;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="map-snippet">
+                        <img src="https://via.placeholder.com/400x150/1a1a1a/666666?text=Map+Snippet+-+Chennai+Affected+Area" alt="Map">
+                        <div class="map-overlay-text">Area Protected</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="outline-btn-sm">View All Requests</button>
+                        <button class="primary-btn-sm orange">Assign Resources</button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="disaster-full-card">
+                    <div class="card-top">
+                        <div class="disaster-title">
+                            <i class="ph-fill ph-wind cyclone"></i>
+                            <div class="title-text">
+                                <h3>Cyclone TN - North Coast</h3>
+                                <p>Started: March 26, 2026</p>
+                            </div>
+                        </div>
+                        <span class="status-tag pulse-red">Ongoing</span>
+                    </div>
+
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="val">1,102</span>
+                            <span class="lab">Victims Reported</span>
+                        </div>
+                    </div>
+
+                    <div class="priority-breakdown">
+                        <p class="section-label">Priority Needs Summary</p>
+                        <div class="breakdown-item">
+                            <div class="label-row">
+                                <span>Rescue Personnel</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="progress-bar"><div class="fill" style="width: 45%; background: #ff3d00;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="outline-btn-sm">View All Requests</button>
+                        <button class="primary-btn-sm orange">Assign Resources</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAB -->
+            <button class="fab-report">
+                <i class="ph-bold ph-plus"></i>
+                <span>Report New</span>
+            </button>
+        </main>
+
+        <!-- Bottom Nav Bar -->
+        <nav class="bottom-nav">
+            <a href="rescuer_dashboard.html" class="nav-item">
+                <i class="ph ph-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="active_disasters.html" class="nav-item active">
+                <i class="ph-fill ph-warning-diamond"></i>
+                <span>Disasters</span>
+            </a>
+            <a href="victim_requests.html" class="nav-item">
+                <i class="ph ph-hand-holding-heart"></i>
+                <span>Requests</span>
+            </a>
+            <a href="my_allocations.html" class="nav-item">
+                <i class="ph ph-package"></i>
+                <span>Resources</span>
+            </a>
+            <a href="rescuer_profile.html" class="nav-item">
+                <i class="ph ph-user-circle-gear"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+
+        <!-- Reporting Modal -->
+        <div class="modal-overlay" id="report-modal">
+            <div class="modal-content glass-card report-modal-card">
+                <div class="modal-header">
+                    <h2>Report New Disaster</h2>
+                    <button class="close-modal" id="close-report-modal"><i class="ph ph-x"></i></button>
+                </div>
+                <form id="new-disaster-form">
+                    <div class="input-group">
+                        <label>Disaster Type</label>
+                        <div class="disaster-type-grid">
+                            <label class="type-option">
+                                <input type="radio" name="disaster-type" value="Flood" required>
+                                <span class="type-box"><i class="ph-fill ph-waves"></i> Flood</span>
+                            </label>
+                            <label class="type-option">
+                                <input type="radio" name="disaster-type" value="Cyclone">
+                                <span class="type-box"><i class="ph-fill ph-wind"></i> Cyclone</span>
+                            </label>
+                            <label class="type-option">
+                                <input type="radio" name="disaster-type" value="Earthquake">
+                                <span class="type-box"><i class="ph-fill ph-warning-circle"></i> Quake</span>
+                            </label>
+                            <label class="type-option">
+                                <input type="radio" name="disaster-type" value="Fire">
+                                <span class="type-box"><i class="ph-fill ph-fire"></i> Fire</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Location (City/Area)</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-map-pin"></i>
+                            <input type="text" id="disaster-loc" placeholder="e.g. Mysuru" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-btn orange" style="width: 100%; padding: 16px; margin-top: 20px;">
+                        Broadcast Report
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="active_disasters.js"></script>
+</body>
+</html>

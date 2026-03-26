@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Priority Selection - ReliefRoute</title>
+    <!-- Base styles and screen specific styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="priority.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- SortableJS for smooth drag and drop -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container priority-container">
+        <!-- Glassmorphism glows -->
+        <div class="glow red-glow"></div>
+        <div class="glow white-glow priority-top-glow"></div>
+        
+        <header class="priority-header">
+            <h1 class="heading">What do you need most?</h1>
+            <p class="sub-heading">Drag to rank your needs — most urgent first.</p>
+        </header>
+
+        <main class="priority-list" id="priority-list">
+            <!-- Card 1: Rescue -->
+            <div class="priority-card" data-id="rescue">
+                <div class="drag-handle">
+                    <i class="ph-bold ph-list"></i>
+                </div>
+                <div class="card-icon">🆘</div>
+                <div class="card-text">
+                    <span class="card-label">Rescue Personnel</span>
+                    <p class="card-desc">Send rescue workers to my location</p>
+                </div>
+                <div class="priority-badge">#1 Priority</div>
+            </div>
+
+            <!-- Card 2: Food -->
+            <div class="priority-card" data-id="food">
+                <div class="drag-handle">
+                    <i class="ph-bold ph-list"></i>
+                </div>
+                <div class="card-icon">🍱</div>
+                <div class="card-text">
+                    <span class="card-label">Food Supplies</span>
+                    <p class="card-desc">Water, food packets, dry ration</p>
+                </div>
+                <div class="priority-badge">#2 Priority</div>
+            </div>
+
+            <!-- Card 3: Medical -->
+            <div class="priority-card" data-id="medical">
+                <div class="drag-handle">
+                    <i class="ph-bold ph-list"></i>
+                </div>
+                <div class="card-icon">💊</div>
+                <div class="card-text">
+                    <span class="card-label">Medical Kits</span>
+                    <p class="card-desc">First aid, medicines, ambulance</p>
+                </div>
+                <div class="priority-badge">#3 Priority</div>
+            </div>
+        </main>
+
+        <section class="info-section">
+            <div class="info-box">
+                <i class="ph-fill ph-info info-icon"></i>
+                <p>Example: If you are in a flood and need to be evacuated first, drag Rescue Personnel to the top.</p>
+            </div>
+        </section>
+
+        <footer class="footer-section">
+            <button class="primary-btn submit-btn" id="submit-btn">
+                Submit My Needs
+                <i class="ph-bold ph-paper-plane-tilt"></i>
+            </button>
+        </footer>
+    </div>
+    <script src="priority.js"></script>
+</body>
+</html>

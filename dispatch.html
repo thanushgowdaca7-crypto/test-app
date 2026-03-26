@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rescue Dispatched - ReliefRoute</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dispatch.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container dispatch-container">
+        <!-- Glow accents -->
+        <div class="glow green-glow"></div>
+        
+        <header class="dispatch-header">
+            <div class="check-animation-container">
+                <svg class="checkmark-svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h1 class="heading">Rescue Team Dispatched!</h1>
+        </header>
+
+        <!-- Summary Card -->
+        <section class="summary-section">
+            <div class="glass-card summary-card">
+                <div class="summary-row">
+                    <i class="ph-fill ph-users-four"></i>
+                    <div class="summary-text">
+                        <span class="label">Rescue Team: 4 personnel</span>
+                        <span class="sub-label">2.3 km away</span>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <i class="ph-fill ph-clock"></i>
+                    <div class="summary-text">
+                        <span class="label">ETA: ~12 minutes</span>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <i class="ph-fill ph-package"></i>
+                    <div class="summary-text">
+                        <span class="label">Food supplies: Confirmed</span>
+                        <span class="sub-label">dispatched from Zone B depot</span>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <i class="ph-fill ph-first-aid-kit"></i>
+                    <div class="summary-text">
+                        <span class="label">Medical kit: Queued</span>
+                        <span class="sub-label">arriving with rescue team</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety Instructions -->
+        <section class="safety-section">
+            <h2 class="section-title">Stay Safe — Do This Now</h2>
+            <div class="safety-scroll">
+                <div class="safety-card">
+                    <i class="ph-bold ph-mountains"></i>
+                    <p>Stay on high ground if flooding</p>
+                </div>
+                <div class="safety-card">
+                    <i class="ph-bold ph-hand-waving"></i>
+                    <p>Wave a bright cloth so rescuers can spot you</p>
+                </div>
+                <div class="safety-card">
+                    <i class="ph-bold ph-battery-charging"></i>
+                    <p>Keep your phone charged — agent will call</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <footer class="footer-section stacked">
+            <button class="primary-btn share-location-btn">
+                <i class="ph-fill ph-navigation-arrow"></i>
+                Share My Live Location with Rescue Team
+            </button>
+            <button class="outline-btn" onclick="window.location.href='priority.html'">
+                Update My Needs
+            </button>
+            <button class="gray-btn" id="mark-safe-btn">
+                Mark Myself as Safe
+            </button>
+        </footer>
+
+        <!-- Modal Popup -->
+        <div class="modal-overlay" id="safe-modal">
+            <div class="modal-content glass-card">
+                <i class="ph-fill ph-question-mark modal-icon"></i>
+                <h3>Are you sure you are safe?</h3>
+                <p>This will close your relief request.</p>
+                <div class="modal-actions">
+                    <button class="modal-btn no" id="cancel-safe">No</button>
+                    <button class="modal-btn yes" id="confirm-safe">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dispatch.js"></script>
+</body>
+</html>
